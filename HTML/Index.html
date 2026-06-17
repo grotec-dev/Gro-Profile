@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Tech Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Your Name</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-content">
+    <h1 class="animate-slide">Tech Innovator <span style="color: var(--primary-color)">&</span> Problem Solver</h1>
+    <p class="animate-slide delay-2">Building scalable solutions for forward-thinking tech companies and startups.</p>
+    <div class="hero-buttons animate-slide delay-2">
+        <a href="works.html" class="btn-primary">View My Works</a>
+        <a href="contact.html" class="btn-secondary">Get In Touch</a>
+    </div>
+</div>
+
+    <!-- Featured Works -->
+    <section class="featured-works">
+        <div class="container">
+            <h2 class="animate-slide">Featured Projects</h2>
+            <div class="works-grid">
+                <div class="work-card animate-slide">
+                    <img src="images/works/project1.jpg" alt="SaaS Dashboard">
+                    <div class="work-card-content">
+                        <h3>SaaS Analytics Dashboard</h3>
+                        <p>React + Node.js + Chart.js | Real-time data visualization platform for 10k+ users</p>
+                    </div>
+                </div>
+                <div class="work-card animate-slide delay-1">
+                    <img src="images/works/project2.jpg" alt="AI Chatbot">
+                    <div class="work-card-content">
+                        <h3>AI-Powered Chatbot</h3>
+                        <p>Python + OpenAI GPT + FastAPI | 24/7 customer support automation</p>
+                    </div>
+                </div>
+                <div class="work-card animate-slide delay-2">
+                    <img src="images/works/project3.jpg" alt="Mobile App">
+                    <div class="work-card-content">
+                        <h3>E-Commerce Mobile App</h3>
+                        <p>React Native + Firebase | Cross-platform shopping experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div id="chat-btn">💬</div>
+    <div id="chat-window">
+        <h4>Hi there! 👋</h4>
+        <p>Need a tech solution? I'm here to help!</p>
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your message...">
+    </div>
+
+    <script src="../JS/main.js"></script>
+    <script src="../JS/chat.js"></script>
+</body>
+</html>
