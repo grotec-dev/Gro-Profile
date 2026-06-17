@@ -23,7 +23,7 @@ const CommunityTrackItem = ({ item, i, t, totalLength }) => {
 
 /* ─── COMMUNITY SECTION ─────────────────────────────────────────────────────── */
 export default function Community({t, dark, onContactClick}) {
-  const DEVTALKS_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2xBJKROBN8quzSGRJtGs0uyBVS8dhh0JRpK35CjES5V4oOg/viewform?usp=header";
+  const DEVTALKS_FORM_URL = "https://luma.com/skis9vgx";
 
   const tracks = [
     {tag:"For Developers",   body:"Deep dives into system design, code reviews, live workshops, and career advice. We help African engineers improve their skills and meet the right people.", icon:"M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18"},
