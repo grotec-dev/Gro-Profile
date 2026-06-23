@@ -93,7 +93,9 @@ export default function ContactModal({ t, open, onClose, initialState }) {
     };
 
     try {
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      await emailjs.send(serviceID, templateID, templateParams, {
+        publicKey: publicKey,
+      });
       setSubmitted(true);
     } catch (err) {
       console.error("Failed to send email:", err);
