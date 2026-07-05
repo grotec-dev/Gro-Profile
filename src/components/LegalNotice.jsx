@@ -31,7 +31,7 @@ export default function PrivacyPolicy({t, onBack}) {
   };
 
   return (
-    <div style={{background: t.bg, minHeight: "100vh"}}>
+    <main id="main-content" style={{background: t.bg, minHeight: "100vh"}}>
       <div style={{maxWidth: "50rem", margin: "0 auto", padding: "clamp(5rem,10vw,8rem) clamp(1.25rem,4vw,2.5rem)"}}>
         <button onClick={onBack} style={{background:"none", border:"none", color:t.textSub, fontSize:"0.875rem", fontFamily:"'Inter',sans-serif", fontWeight:600, cursor:"pointer", marginBottom:"3rem", display:"flex", alignItems:"center", gap:"0.5rem", transition:"color 0.2s"}} onMouseEnter={e => e.currentTarget.style.color=t.purple} onMouseLeave={e => e.currentTarget.style.color=t.textSub}>
           ← Back to GroTec
@@ -58,39 +58,38 @@ export default function PrivacyPolicy({t, onBack}) {
           <ul style={{...pStyle, paddingLeft: "1.5rem"}}>
             <li style={{marginBottom: "0.5rem"}}>Provide our agency services.</li>
             <li style={{marginBottom: "0.5rem"}}>Run DevTalks events.</li>
-            <li style={{marginBottom: "0.5rem"}}>Email you about projects or updates.</li>
-            <li style={{marginBottom: "0.5rem"}}>Study how people use our site to make it better.</li>
-            <li style={{marginBottom: "0.5rem"}}>Keep our systems secure from fraud.</li>
+            <li style={{marginBottom: "0.5rem"}}>Send updates on our work.</li>
+            <li style={{marginBottom: "0.5rem"}}>Improve our website.</li>
           </ul>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>3. Sharing Your Information</h2>
-          <p style={pStyle}>We never sell your data. We only share it when necessary:</p>
-          <p style={pStyle}><strong>With Service Providers:</strong> Companies that help us with hosting, emails, and analytics.</p>
-          <p style={pStyle}><strong>For Legal Reasons:</strong> If the law requires us to share it, or if we need to protect our rights and safety.</p>
-          <p style={pStyle}><strong>Business Changes:</strong> If we sell our business or merge with another company, your data will go with it.</p>
+          <p style={pStyle}>We do not sell your personal data. We only share it when necessary:</p>
+          <p style={pStyle}><strong>Service Providers:</strong> We use tools like Luma for event management, EmailJS for contact forms, and web analytics providers. These companies only get the data they need to do their jobs.</p>
+          <p style={pStyle}><strong>Legal Requirements:</strong> We may share data if required by law or to protect our rights.</p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>4. Data Security</h2>
-          <p style={pStyle}>We use strong security tools to protect your information from hackers and leaks. However, no internet system is 100% perfect, so we cannot guarantee complete security.</p>
+          <p style={pStyle}>We use standard security measures to protect your data. However, no database or transmission over the internet is 100% secure — so we cannot promise absolute security.</p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>5. Your Privacy Rights</h2>
-          <p style={pStyle}>Depending on where you live, the law gives you rights over your data. You can:</p>
+          <p style={pStyle}>Depending on where you live, you have rights over your data. This includes the right to:</p>
           <ul style={{...pStyle, paddingLeft: "1.5rem"}}>
-            <li style={{marginBottom: "0.5rem"}}>Ask for a copy of your data.</li>
-            <li style={{marginBottom: "0.5rem"}}>Ask us to fix wrong info.</li>
+            <li style={{marginBottom: "0.5rem"}}>Ask what data we have about you.</li>
+            <li style={{marginBottom: "0.5rem"}}>Request updates to incorrect data.</li>
             <li style={{marginBottom: "0.5rem"}}>Ask us to delete your data.</li>
-            <li style={{marginBottom: "0.5rem"}}>Unsubscribe from our emails at any time using the link at the bottom.</li>
+            <li style={{marginBottom: "0.5rem"}}>Object to how we use your data.</li>
           </ul>
+          <p style={pStyle}>To use these rights, email us at <a href="mailto:hello@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>hello@grotec.dev</a>.</p>
         </div>
 
         <div style={sectionStyle}>
           <h2 style={h2Style}>6. Children's Privacy</h2>
-          <p style={pStyle}>Our services are for adults 18 and older. We do not try to collect data from kids. If we find out we accidentally collected info from someone under 18, we will delete it immediately.</p>
+          <p style={pStyle}>Our services are not for children under 16. We do not knowingly collect data from children. If you learn that a child has shared data with us, please let us know.</p>
         </div>
 
         <div style={sectionStyle}>
@@ -103,6 +102,6 @@ export default function PrivacyPolicy({t, onBack}) {
           <p style={pStyle}>If you have questions about your privacy, email us at <a href="mailto:hello@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>hello@grotec.dev</a>.</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

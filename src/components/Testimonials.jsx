@@ -1,89 +1,336 @@
 import { useState } from "react";
-import { SectionHeader } from "./shared";
 
-/* ─── DATA — Draft testimonials with visible draft badges ──────────────────── */
-const testimonials = [
-  /* TODO: HIGH PRIORITY — Replace with real client testimonial — remove draft badge when real quote is added */
+/* ─── DEPLOYMENT DATA ────────────────────────────────────────────────────────── */
+const deployments = [
   {
-    quote: "They took the time to understand what our business actually needed before writing a single line of code. The final product was exactly what we asked for, delivered on time.",
-    author: "Client",
-    role: "Web Development Project",
-    isDraft: true,
+    index: "01",
+    system: "AXIOM CORE STATE MACHINE",
+    context: "Distributed State Registry System",
+    environment: "0G Galileo Testnet Infrastructure",
+    deliverable:
+      "Architected and deployed a decentralized state registry engine capable of handling high-throughput cryptographic verification.",
+    outcome: "Successful integration with 0G Testnet nodes.",
+    credit: "Kamsiyochukwu Ogbodo",
+    role: "Backend Lead",
+    year: "2024",
   },
-  /* TODO: HIGH PRIORITY — Replace with real client testimonial — remove draft badge when real quote is added */
   {
-    quote: "What stood out was how clearly they communicated throughout the project. No confusing jargon — just honest updates and good work.",
-    author: "Client",
-    role: "Mobile App Project",
-    isDraft: true,
+    index: "02",
+    system: "TRACKSKILL WORKFLOW ENGINE",
+    context: "Internal Agile Management System",
+    environment: "GroTec Ecosystem",
+    deliverable:
+      "Engineered an internal technical project manager dashboard featuring direct public repository synchronization and Git automation hooks.",
+    outcome:
+      "Fully deployed tool actively tracking developer skill velocity across our talent pipeline.",
+    credit: "Ikedinachi Ogbonne",
+    role: "Project Manager",
+    year: "2024",
   },
 ];
 
-/* ─── TESTIMONIAL CARD ──────────────────────────────────────────────────────── */
-const TestimonialCard = ({ q, t }) => {
+/* ─── LOG ROW ────────────────────────────────────────────────────────────────── */
+const LogRow = ({ d }) => {
   const [h, setH] = useState(false);
+
   return (
-    <div
+    <article
+      className="log-row"
+      tabIndex={0}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
-      className="scroll-fade hover-card"
+      onFocus={() => setH(true)}
+      onBlur={() => setH(false)}
       style={{
-        padding: "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3.5vw, 2.75rem)",
-        background: h ? t.bgHover : t.bg,
-        position: "relative",
+        borderTop: `1px solid ${h ? "#3f3f46" : "#18181b"}`,
+        padding: "2.5rem 0",
+        background: h ? "#121212" : "transparent",
+        paddingLeft: h ? "1.5rem" : "0",
+        paddingRight: h ? "1.5rem" : "0",
+        marginLeft: h ? "-1.5rem" : "0",
+        marginRight: h ? "-1.5rem" : "0",
+        transition:
+          "background 0.3s ease, padding 0.3s ease, margin 0.3s ease, border-color 0.3s ease",
+        cursor: "default",
+        outline: "none",
       }}
     >
-      {/* Draft badge — visible to site visitors */}
-      {q.isDraft && (
-        <div style={{
-          position: "absolute",
-          top: "1rem",
-          right: "1.25rem",
-          background: t.tealDim,
-          color: t.teal,
-          fontSize: "0.5625rem",
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          padding: "0.25rem 0.625rem",
-          fontFamily: "'Inter',sans-serif",
-        }}>
-          Draft — Pending Client Approval
-        </div>
-      )}
+      {/* TOP ROW: Index + System Name + Year */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          gap: "2rem",
+          marginBottom: "1.25rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          {/* Index */}
+          <span
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.625rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              color: "#3f3f46",
+              flexShrink: 0,
+            }}
+          >
+            {d.index}
+          </span>
 
-      <div style={{position: "absolute", top: 0, left: 0, width: "2px", height: h ? "100%" : 0, background: t.purple, transition: "height 0.35s var(--ease-antigravity)"}} />
-      <div style={{fontFamily: "Georgia,'Times New Roman',serif", fontSize: "3rem", lineHeight: 1, color: t.purple, marginBottom: "0.25em", opacity: 0.6}}>"</div>
-      <p style={{fontSize: "clamp(0.95rem, 1.2vw, 1.05rem)", color: t.textSub, lineHeight: 1.82, fontStyle: "italic", fontFamily: "'Inter',sans-serif", marginBottom: "2em"}}>{q.quote}</p>
-      <div style={{display: "flex", alignItems: "center", gap: "0.875rem", paddingTop: "1.5rem", borderTop: `1px solid ${t.border}`}}>
-        <div style={{width: "2.5rem", height: "2.5rem", background: t.bgHover, border: `1px solid ${t.border}`, display: "flex", alignItems: "center", justifyContent: "center", color: t.purple, flexShrink: 0}}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          {/* System Name */}
+          <h3
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              color: h ? "#ffffff" : "#e5e5e5",
+              margin: 0,
+              lineHeight: 1,
+              transition: "color 0.3s",
+            }}
+          >
+            {d.system}
+          </h3>
         </div>
-        <div>
-          <div style={{fontSize: "0.875rem", fontWeight: 700, color: t.text, fontFamily: "'Space Grotesk',sans-serif"}}>{q.author}</div>
-          <div style={{fontSize: "0.75rem", color: t.textDim, marginTop: "0.25em", letterSpacing: "0.04em", fontFamily: "'Inter',sans-serif"}}>{q.role}</div>
+
+        {/* Year tag */}
+        <span
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.625rem",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#3f3f46",
+            flexShrink: 0,
+            marginTop: "0.25rem",
+          }}
+        >
+          {d.year}
+        </span>
+      </div>
+
+      {/* CONTEXT TAGS */}
+      <div
+        style={{
+          display: "flex",
+          gap: "0.5rem",
+          flexWrap: "wrap",
+          marginBottom: "1.25rem",
+        }}
+      >
+        {[d.context, d.environment].map((tag) => (
+          <span
+            key={tag}
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.6875rem",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#52525b",
+              border: "1px solid #27272a",
+              padding: "0.25rem 0.75rem",
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* DELIVERABLE */}
+      <p
+        style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.9375rem",
+          color: "#a3a3a3",
+          lineHeight: 1.78,
+          marginBottom: "1.25rem",
+          maxWidth: "52rem",
+        }}
+      >
+        {d.deliverable}
+      </p>
+
+      {/* OUTCOME + CREDIT */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+          flexWrap: "wrap",
+          gap: "1rem",
+        }}
+      >
+        {/* Outcome Metric */}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+          <span
+            style={{
+              width: "0.5rem",
+              height: "0.5rem",
+              background: "#ffffff",
+              display: "inline-block",
+              flexShrink: 0,
+            }}
+          />
+          <span
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.8125rem",
+              color: "#ffffff",
+              fontWeight: 500,
+            }}
+          >
+            {d.outcome}
+          </span>
+        </div>
+
+        {/* Lead Credit */}
+        <div style={{ textAlign: "right" }}>
+          <div
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              color: "#71717a",
+              letterSpacing: "0.04em",
+            }}
+          >
+            {d.credit}
+          </div>
+          <div
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.625rem",
+              color: "#3f3f46",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              marginTop: "0.125rem",
+            }}
+          >
+            {d.role}
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
-/* ─── TESTIMONIALS SECTION ──────────────────────────────────────────────────── */
-export default function Testimonials({t}) {
+/* ─── IMPACT LOG SECTION ─────────────────────────────────────────────────────── */
+export default function Testimonials({ t }) {
   return (
-    <section style={{background:t.bgRaised,borderTop:`1px solid ${t.border}`,padding:"var(--fluid-section) 0"}}>
-      <div style={{maxWidth:"80rem",margin:"0 auto",padding:"0 clamp(1.25rem,4vw,2.5rem)"}}>
-        <SectionHeader
-          t={t}
-          align="center"
-          label="Client Voices"
-          title="What our clients say."
-        />
-        <div className="testimonials-grid">
-          {testimonials.map((q, i) => (
-            <TestimonialCard key={i} q={q} t={t} />
-          ))}
+    <section
+      id="deployment-log"
+      style={{
+        background: "#0b0b0b",
+        borderTop: "1px solid #18181b",
+        padding: "var(--fluid-section) 0",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "80rem",
+          margin: "0 auto",
+          padding: "0 clamp(1.25rem, 4vw, 2.5rem)",
+        }}
+      >
+        {/* ── Section Header ── */}
+        <div style={{ marginBottom: "clamp(3rem, 6vw, 5rem)" }}>
+          <div
+            style={{
+              fontSize: "0.625rem",
+              fontWeight: 700,
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#52525b",
+              fontFamily: "'Inter', sans-serif",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Impact Log
+          </div>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              color: "#ffffff",
+              margin: "0 0 1.25rem 0",
+              lineHeight: 1.0,
+            }}
+          >
+            System Deployments &amp; Impact.
+          </h2>
+          <p
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "1rem",
+              color: "#71717a",
+              lineHeight: 1.75,
+              maxWidth: "42rem",
+              margin: 0,
+            }}
+          >
+            Verifiable software architecture and technical project execution
+            delivered by our studio since 2023.
+          </p>
         </div>
+
+        {/* ── Log Matrix ── */}
+        <div>
+          {deployments.map((d) => (
+            <LogRow key={d.index} d={d} />
+          ))}
+          {/* Closing border */}
+          <div style={{ borderTop: "1px solid #18181b" }} />
+        </div>
+
+        {/* ── Ecosystem Validation Blockquote ── */}
+        <blockquote
+          style={{
+            margin: "clamp(3rem, 6vw, 4.5rem) 0 0 0",
+            padding: "2rem 0 2rem 2rem",
+            borderLeft: "2px solid #27272a",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(1.0625rem, 2vw, 1.375rem)",
+              fontStyle: "italic",
+              fontWeight: 600,
+              color: "#a3a3a3",
+              lineHeight: 1.7,
+              maxWidth: "48rem",
+              margin: "0 0 1rem 0",
+            }}
+          >
+            &ldquo;Every deployment is backed by our live developer ecosystem,
+            ensuring instant scalability and secure, production-ready code
+            execution from day one.&rdquo;
+          </p>
+          <cite
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.6875rem",
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#3f3f46",
+              fontStyle: "normal",
+            }}
+          >
+            GroTec Studio — Engineering Doctrine
+          </cite>
+        </blockquote>
       </div>
     </section>
   );

@@ -123,13 +123,13 @@ export default function ContactModal({ t, open, onClose, initialState }) {
   const inputStyle = (field, val) => ({
     fontFamily: "'Inter', sans-serif", fontSize: "1rem", width: "100%",
     background: t.bg, color: t.text, border: `1px solid ${getInputBorder(field, val)}`,
-    borderRadius: 0, padding: "1rem 1.25rem", outline: "none", transition: "border-color 0.22s ease",
+    borderRadius: 0, padding: "1rem 1.25rem", transition: "border-color 0.22s ease",
   });
 
   const selectStyle = (fieldName) => ({
     fontFamily: "'Inter', sans-serif", fontSize: "1rem", width: "100%", backgroundColor: t.bg, color: t.text,
     border: `1px solid ${focusedField === fieldName ? t.purple : t.border}`, borderRadius: 0,
-    padding: "1rem 1.25rem", outline: "none", transition: "border-color 0.22s ease",
+    padding: "1rem 1.25rem", transition: "border-color 0.22s ease",
     WebkitAppearance: "none", backgroundPosition: "right 16px center",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='${t.id === "dark" ? "white" : "black"}' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
     backgroundRepeat: "no-repeat", cursor: "pointer",
@@ -145,24 +145,24 @@ export default function ContactModal({ t, open, onClose, initialState }) {
         transform: open ? "scale(1) translateY(0)" : "scale(0.96) translateY(1rem)",
       }} onClick={e => e.stopPropagation()}>
         
-        <button onClick={handleClose} disabled={sending} className="gt-modal-close" style={{ color: t.textSub }}>
+        <button onClick={handleClose} disabled={sending} className="gt-modal-close" aria-label="Close form dialog" style={{ color: t.textSub }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
 
-        <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, margin: "0 0 2rem 0", letterSpacing: "-0.02em" }}>
+        <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, margin: "0 0 2rem 0", letterSpacing: "-0.02em" }}>
           {submitted ? "Project Initiated" : "Start a Project"}
-        </h3>
+        </h2>
 
         {submitted ? (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "2.5rem 0" }}>
             <div style={{ width: "4rem", height: "4rem", borderRadius: "50%", background: t.tealDim, display: "flex", alignItems: "center", justifyContent: "center", color: t.teal, marginBottom: "1.5rem" }}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, marginBottom: "0.75rem", letterSpacing: "-0.01em" }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, marginBottom: "0.75rem", letterSpacing: "-0.01em" }}>
               Submission Successful
-            </h4>
+            </h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: t.textSub, lineHeight: 1.6, maxWidth: "20rem", margin: 0 }}>
               Thank you for reaching out. Our team will review your project and reply within 24 hours.
             </p>

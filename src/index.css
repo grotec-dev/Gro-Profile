@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -36,7 +36,21 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 0.3s ease, color 0.3s ease;
+  background-color: #000000;
+  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+body p, body a, body button, body li, body span, body input, body textarea {
+  font-family: 'Inter', sans-serif;
 }
 
 ::selection {
@@ -172,10 +186,11 @@ body {
   margin-bottom: 0.3em;
 }
 .work-row-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(0.9375rem, 2vw, 1.25rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -198,10 +213,10 @@ body {
   gap: 0.2rem;
 }
 .work-row-metric-val {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.0625rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .work-row-metric-lbl {
   font-size: 0.625rem;
@@ -379,6 +394,257 @@ body {
 
 /* ─── FOCUS ACCESSIBLE RING ────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid rgba(107, 92, 231, 0.6);
-  outline-offset: 3px;
+  outline: 2px solid var(--theme-purple, #6b5ce7) !important;
+  outline-offset: 3px !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--theme-purple, #6b5ce7) !important;
+  outline-offset: 3px !important;
+}
+
+/* ─── BENTO GRID LAYOUT ────────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: var(--theme-bg-raised);
+  border: 1px solid var(--theme-border);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.12);
+  border-color: var(--theme-border-hov);
+}
+
+.bento-card-0 { grid-column: span 7; }
+.bento-card-1 { grid-column: span 5; }
+.bento-card-2 { grid-column: span 4; }
+.bento-card-3 { grid-column: span 4; }
+.bento-card-4 { grid-column: span 4; }
+
+@media (max-width: 60rem) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .bento-card-0, .bento-card-1, .bento-card-2, .bento-card-3, .bento-card-4 {
+    grid-column: span 1 !important;
+  }
+  .bento-card-0 {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .bento-card-0, .bento-card-1, .bento-card-2, .bento-card-3, .bento-card-4 {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Bento card hover effect for image scaling */
+.bento-card-img-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.bento-card-bg-img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-card-bg-img {
+  transform: scale(1.08);
+}
+
+/* Bento card hover effect for text translation */
+.bento-card-text {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-card-text {
+  transform: translateY(-2px);
+}
+
+/* ─── ESCAPED TAILWIND SHAPES FOR BENTO AVATARS ─────────────────────── */
+.rounded-tr-\[80px\] {
+  border-top-right-radius: 80px;
+}
+.rounded-bl-\[40px\] {
+  border-bottom-left-radius: 40px;
+}
+.rounded-tl-\[120px\] {
+  border-top-left-radius: 120px;
+}
+.rounded-br-\[60px\] {
+  border-bottom-right-radius: 60px;
+}
+.rounded-br-\[100px\] {
+  border-bottom-right-radius: 100px;
+}
+.rounded-none {
+  border-radius: 0px;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* ─── ECOSYSTEM GRID LAYOUT ────────────────────────────────────────── */
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 48rem) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.rounded-tl-\[60px\] {
+  border-top-left-radius: 60px;
+}
+.rounded-br-\[60px\] {
+  border-bottom-right-radius: 60px;
+}
+.rounded-tr-\[40px\] {
+  border-top-right-radius: 40px;
+}
+.rounded-bl-\[40px\] {
+  border-bottom-left-radius: 40px;
+}
+
+@media (min-width: 48rem) {
+  .md\:col-span-2 {
+    grid-column: span 2;
+  }
+}
+
+/* ─── MARQUEE TECH TICKER ──────────────────────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+  background: var(--theme-bg-raised);
+  border-top: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
+  padding: 1.25rem 0;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 25s linear infinite;
+  min-width: 200%;
+}
+
+.marquee-item {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-text-sub);
+  padding: 0 2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── PROJECT BENTO GRID ───────────────────────────────────────────── */
+.project-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card-wide {
+  grid-column: span 2;
+}
+
+.project-card-tall {
+  grid-column: span 1;
+}
+
+@media (max-width: 48rem) {
+  .project-bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .project-card-wide, .project-card-tall {
+    grid-column: span 1 !important;
+  }
+}
+
+.project-leaf-shape {
+  border-top-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+.project-sharp-shape {
+  border-radius: 0px;
+}
+
+/* ─── ZINC BORDERS & ASPECT RATIO FOR TEAM IMAGES ─────────────────── */
+.border-zinc-80px {
+  border: 1px solid #27272a !important;
+}
+
+.border-zinc-800 {
+  border: 1px solid #27272a !important;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* ─── SHAPES FOR SERVICES BENTO ─────────────────── */
+.rounded-tl-\[80px\] {
+  border-top-left-radius: 80px;
+}
+.rounded-tr-\[60px\] {
+  border-top-right-radius: 60px;
+}
+.rounded-bl-\[60px\] {
+  border-bottom-left-radius: 60px;
+}
+.rounded-br-\[40px\] {
+  border-bottom-right-radius: 40px;
+}
+
+/* ─── CLASH/SYNE EDITORIAL TYPOGRAPHY & SPACING ─────────────────── */
+.tracking-wide {
+  letter-spacing: 0.06em !important;
+}
+
+.tracking-wider {
+  letter-spacing: 0.12em !important;
+}
+
+.tracking-widest {
+  letter-spacing: 0.18em !important;
+}
+
+.rounded-br-\[100px\] {
+  border-bottom-right-radius: 100px;
 }

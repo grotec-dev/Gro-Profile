@@ -1,9 +1,9 @@
 /* ─── THEME SYSTEM ─────────────────────────────────────────────────────────── */
 export const DARK = {
   id:           "dark",
-  bg:           "#0F0D0B",
-  bgRaised:     "#1A1612",
-  bgHover:      "#221E19",
+  bg:           "#000000",
+  bgRaised:     "#0d0d0d",
+  bgHover:      "#1a1a1a",
   border:       "rgba(255,255,255,0.07)",
   borderHov:    "rgba(255,255,255,0.14)",
   borderAccent: "#6B5CE7",
@@ -16,9 +16,9 @@ export const DARK = {
   purpleText:   "#B0A8F8",
   teal:         "#00C9A7",
   tealDim:      "rgba(0,201,167,0.10)",
-  toggleBg:     "#1A1612",
+  toggleBg:     "#0d0d0d",
   toggleBdr:    "rgba(255,255,255,0.10)",
-  navBg:        "rgba(15,13,11,0.94)",
+  navBg:        "rgba(0,0,0,0.94)",
   shadow:       "none",
 };
 

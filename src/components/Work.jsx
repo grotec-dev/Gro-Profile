@@ -30,19 +30,29 @@ const WorkRow = ({ w, i, t, open, onToggle, totalLength }) => {
     <div className="scroll-fade" style={{borderBottom: i < totalLength - 1 ? `1px solid ${t.border}` : "none"}}>
       <div
         onClick={onToggle}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onToggle();
+          }
+        }}
         onMouseEnter={() => setH(true)}
         onMouseLeave={() => setH(false)}
         className="work-row-header"
+        role="button"
+        tabIndex={0}
+        aria-expanded={open}
         style={{
           background: h || open ? t.bgHover : "transparent",
-          "--row-border": t.border
+          "--row-border": t.border,
+          outline: "none"
         }}
       >
         <div className="work-row-main">
           <span className="work-row-index" style={{color: t.textDimmer}}>{String(i + 1).padStart(2, "0")}</span>
           <div className="work-row-info">
             <div className="work-row-tag" style={{color: t.purple}}>{w.tag}</div>
-            <div className="work-row-title" style={{color: t.text}}>{w.title}</div>
+            <h3 className="work-row-title" style={{color: t.text, margin: 0}}>{w.title}</h3>
           </div>
         </div>
         <div className="work-row-meta">

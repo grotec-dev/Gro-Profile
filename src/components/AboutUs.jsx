@@ -49,8 +49,7 @@ export default function AboutUs({t}) {
               fontFamily: "'Inter',sans-serif",
               marginBottom: "1.5rem",
             }}>
-              {/* TODO: Replace with real founding story paragraph 1 */}
-              GroTec was founded in Enugu, Nigeria by four engineers who saw a gap in the market — too many businesses needed quality technology but couldn't find reliable, honest partners to build it.
+              GroTec started in 2023 in Enugu, Nigeria. We wanted to build a company that does one thing: make great software for businesses. Too many companies wanted websites and apps but could not find a helper they could trust.
             </p>
             <p style={{
               fontSize: "var(--fluid-body)",
@@ -59,8 +58,7 @@ export default function AboutUs({t}) {
               fontFamily: "'Inter',sans-serif",
               marginBottom: "1.5rem",
             }}>
-              {/* TODO: Replace with real founding story paragraph 2 */}
-              What started as a shared commitment to building things properly has grown into a team of engineers, designers, and specialists who deliver real results for businesses across Nigeria and beyond.
+              We do not use big tech words or make things complicated. We just write clean code, design simple screens, and make sure your app works on every phone and computer.
             </p>
             <p style={{
               fontSize: "var(--fluid-body)",
@@ -69,8 +67,7 @@ export default function AboutUs({t}) {
               fontFamily: "'Inter',sans-serif",
               margin: 0,
             }}>
-              {/* TODO: Replace with real founding story paragraph 3 */}
-              Today, GroTec is more than its founders. We employ technical staff across security, infrastructure, and AI — because delivering great work means having the right people for every part of the job.
+              Today, we are a complete team of software builders. We design the look, build the backend systems, and protect your servers. We do all the work ourselves so you get a finished product that you and your customers will love.
             </p>
           </div>
 
@@ -79,12 +76,11 @@ export default function AboutUs({t}) {
             background: t.bg,
             border: `1px solid ${t.border}`,
           }}>
-            {/* TODO: Replace these values with real, verified numbers */}
             {[
-              { label: "Founded", value: "2024", detail: "Enugu, Nigeria" },
-              { label: "Team Size", value: "Growing", detail: "Founders + employed staff" },
-              { label: "Focus", value: "Africa-First", detail: "Built for Nigerian & African businesses" },
-              { label: "Community", value: "DevTalks", detail: "Free events for developers & business owners" },
+              { label: "Founded", value: "2023", detail: "Enugu, Nigeria" },
+              { label: "Team Size", value: "5 Builders", detail: "Fully in-house team" },
+              { label: "Focus", value: "Simple & Clean", detail: "Built to work on any screen" },
+              { label: "Community", value: "DevTalks", detail: "Free learning events for everyone" },
             ].map((item, i) => (
               <div key={i} style={{
                 padding: "1.25rem 0",
