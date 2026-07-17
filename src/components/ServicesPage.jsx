@@ -58,7 +58,7 @@ const servicesList = [
   }
 ];
 
-const ServiceBentoCard = ({ s, onHover, isHovered }) => {
+const ServiceBentoCard = ({ s, onHover, isHovered, t }) => {
   return (
     <article
       onMouseEnter={onHover}
@@ -69,28 +69,28 @@ const ServiceBentoCard = ({ s, onHover, isHovered }) => {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "3rem 2.25rem",
-        background: "#121212",
-        border: `1px solid ${isHovered ? "#ffffff" : "#27272a"}`,
+        background: t.bgRaised,
+        border: `1px solid ${isHovered ? t.borderHov : t.border}`,
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         transform: isHovered ? "scale(1.01) translateY(-2px)" : "scale(1) translateY(0)",
-        boxShadow: isHovered ? "0 10px 30px rgba(0, 0, 0, 0.7)" : "none",
+        boxShadow: isHovered ? "0 10px 30px rgba(0, 0, 0, 0.4)" : "none",
         cursor: "default",
         minHeight: "22rem"
       }}
     >
       <div>
-        <h3 className="tracking-wide" style={{
-          fontFamily: "'Space Grotesk',sans-serif",
+        <h3 style={{
+          fontFamily: "'Sora',sans-serif",
           fontSize: "1.5rem",
-          fontWeight: 700,
-          color: "#ffffff",
+          fontWeight: 600,
+          color: t.text,
           marginBottom: "1.25rem"
         }}>
           {s.title}
         </h3>
         <p style={{
           fontSize: "0.9375rem",
-          color: "#a3a3a3",
+          color: t.textSub,
           lineHeight: 1.7,
           fontFamily: "'Inter',sans-serif",
           margin: "0 0 2rem 0"
@@ -105,7 +105,7 @@ const ServiceBentoCard = ({ s, onHover, isHovered }) => {
           fontWeight: 700,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#6b5ce7",
+          color: t.purple,
           fontFamily: "'Inter',sans-serif",
           marginBottom: "0.625rem"
         }}>
@@ -123,10 +123,10 @@ const ServiceBentoCard = ({ s, onHover, isHovered }) => {
               fontSize: "0.75rem",
               fontWeight: 500,
               fontFamily: "'Inter',sans-serif",
-              color: "#ffffff",
-              background: "#0b0b0b",
+              color: t.text,
+              background: t.bg,
               padding: "0.25rem 0.625rem",
-              border: "1px solid #27272a"
+              border: `1px solid ${t.border}`
             }}>
               {tag}
             </span>
@@ -142,17 +142,17 @@ export default function ServicesPage({ t, setPage, openContact }) {
   const [hoveredBtn, setHoveredBtn] = useState(false);
 
   return (
-    <main id="main-content" style={{ background: "#0b0b0b", color: "#ffffff", minHeight: "100vh", marginBottom: 0, paddingBottom: 0 }}>
+    <main id="main-content" style={{ background: t.bg, color: t.text, minHeight: "100vh", marginBottom: 0, paddingBottom: 0 }}>
       
       {/* SECTION 1: Intro Editorial Header */}
       <section id="services-hero" style={{ padding: "clamp(8rem, 12vw, 10rem) 0 5rem 0" }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
           <div style={{ maxWidth: "52rem" }}>
             <Label t={t}>Capabilities</Label>
-            <h1 className="tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 0.96, color: "#ffffff", textTransform: "uppercase", margin: "2rem 0" }}>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.05, letterSpacing: "-0.02em", color: t.text, margin: "2rem 0" }}>
               Engineered engines for digital growth.
             </h1>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: "#a3a3a3", lineHeight: 1.8, margin: 0 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: t.textSub, lineHeight: 1.8, margin: 0 }}>
               We combine deep technical software engineering with premium brand design, product architecture, and go-to-market business strategy. We handle your system from initial concept to market scale.
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function ServicesPage({ t, setPage, openContact }) {
       </section>
 
       {/* SECTION 2: Capabilities Showcase Bento Grid */}
-      <section id="grid-catalog" style={{ padding: "5rem 0", borderTop: "1px solid #222222" }}>
+      <section id="grid-catalog" style={{ padding: "5rem 0", borderTop: `1px solid ${t.border}` }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
           <div className="ecosystem-grid" style={{ gap: "2rem" }}>
             {servicesList.map((s) => (
@@ -169,6 +169,7 @@ export default function ServicesPage({ t, setPage, openContact }) {
                 s={s}
                 onHover={(id) => setHoveredCard(id ? s.id : null)}
                 isHovered={hoveredCard === s.id}
+                t={t}
               />
             ))}
           </div>
@@ -176,14 +177,14 @@ export default function ServicesPage({ t, setPage, openContact }) {
       </section>
 
       {/* SECTION 3: Call to Action Conversion Zone */}
-      <section id="services-cta" style={{ padding: "4rem 0 4.5rem", background: "#090909", borderTop: "1px solid #222222", marginBottom: 0 }}>
+      <section id="services-cta" style={{ padding: "4rem 0 4.5rem", background: t.bgRaised, borderTop: `1px solid ${t.border}`, marginBottom: 0 }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)", textAlign: "center" }}>
           <div style={{ maxWidth: "45rem", margin: "0 auto" }}>
-            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6b5ce7", fontFamily: "'Inter',sans-serif" }}>CTA</span>
-            <h2 className="tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 900, color: "#ffffff", marginTop: "0.5rem", marginBottom: "1.5rem", textTransform: "uppercase" }}>
-              Backed By Our Developer Network.
+            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: t.purple, fontFamily: "'Inter',sans-serif" }}>CTA</span>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(2rem, 3.5vw, 2.5rem)", fontWeight: 600, letterSpacing: "-0.02em", color: t.text, marginTop: "0.5rem", marginBottom: "1.5rem" }}>
+              Backed by our developer network.
             </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: "#a3a3a3", lineHeight: 1.8, marginBottom: "3rem" }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: t.textSub, lineHeight: 1.8, marginBottom: "3rem" }}>
               Because we run an active community ecosystem, we have a pipeline of skilled specialists ready to jump on your build. We can scale our engineering horsepower up or down based on your project requirements.
             </p>
             <button
@@ -195,22 +196,22 @@ export default function ServicesPage({ t, setPage, openContact }) {
                 alignItems: "center",
                 gap: "0.5625rem",
                 fontFamily: "'Inter',sans-serif",
-                fontSize: "0.8125rem",
-                fontWeight: 600,
-                letterSpacing: "0.07em",
-                textTransform: "uppercase",
-                borderRadius: 0,
-                padding: "1.125rem 2.5rem",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                letterSpacing: "0",
+                textTransform: "none",
+                borderRadius: "999px",
+                padding: "1rem 2rem",
                 border: "none",
                 cursor: "pointer",
-                background: "#ffffff",
-                color: "#000000",
-                transform: hoveredBtn ? "scale(1.03) translateY(-1px)" : "scale(1) translateY(0)",
-                boxShadow: hoveredBtn ? "0 8px 24px rgba(255,255,255,0.15)" : "none",
-                transition: "all 0.25s ease"
+                background: hoveredBtn ? t.purpleL : t.purple,
+                color: "#fff",
+                transform: hoveredBtn ? "translateY(-1px)" : "none",
+                boxShadow: hoveredBtn ? "0 8px 24px rgba(111,91,234,0.28)" : "none",
+                transition: "all 0.22s var(--ease-antigravity)"
               }}
             >
-              Let's Build Together
+              Let's build together
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
           </div>

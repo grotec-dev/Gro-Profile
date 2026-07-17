@@ -14,7 +14,7 @@ export default function PrivacyPolicy({t, onBack}) {
   };
 
   const h2Style = {
-    fontFamily: "'Space Grotesk',sans-serif",
+    fontFamily: "'Sora',sans-serif",
     fontSize: "1.125rem",
     fontWeight: 700,
     color: t.text,
@@ -38,7 +38,7 @@ export default function PrivacyPolicy({t, onBack}) {
         </button>
 
         <Label t={t}>Last Updated: June 13, 2026</Label>
-        <h1 style={{fontFamily: "'Space Grotesk',sans-serif", fontSize: "var(--fluid-h2)", fontWeight: 700, color: t.text, marginBottom: "2rem", letterSpacing: "-0.03em"}}>Privacy Policy for GroTec</h1>
+        <h1 style={{fontFamily: "'Sora',sans-serif", fontSize: "var(--fluid-h2)", fontWeight: 700, color: t.text, marginBottom: "2rem", letterSpacing: "-0.03em"}}>Privacy Policy for GroTec</h1>
 
         <div style={sectionStyle}>
           <p style={pStyle}>Welcome to GroTec. We run a digital agency, tech studio, and community. We care about your privacy and want to be clear about how we protect your data.</p>

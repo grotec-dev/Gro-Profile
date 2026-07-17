@@ -103,7 +103,7 @@ export default function FeaturedBuilds({ t, setPage }) {
                       {build.role}
                     </span>
                     <h3 style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "'Sora', sans-serif",
                       fontSize: "2rem",
                       fontWeight: 700,
                       color: "#fff",

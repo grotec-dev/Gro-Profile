@@ -42,9 +42,9 @@ const LogRow = ({ d }) => {
       onFocus={() => setH(true)}
       onBlur={() => setH(false)}
       style={{
-        borderTop: `1px solid ${h ? "#3f3f46" : "#18181b"}`,
+        borderTop: `1px solid ${h ? "#3A3A48" : "#2A2A36"}`,
         padding: "2.5rem 0",
-        background: h ? "#121212" : "transparent",
+        background: h ? "#1D1D27" : "transparent",
         paddingLeft: h ? "1.5rem" : "0",
         paddingRight: h ? "1.5rem" : "0",
         marginLeft: h ? "-1.5rem" : "0",
@@ -74,7 +74,7 @@ const LogRow = ({ d }) => {
               fontSize: "0.625rem",
               fontWeight: 700,
               letterSpacing: "0.2em",
-              color: "#3f3f46",
+              color: "#3A3A48",
               flexShrink: 0,
             }}
           >
@@ -84,12 +84,11 @@ const LogRow = ({ d }) => {
           {/* System Name */}
           <h3
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Sora', sans-serif",
               fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-              fontWeight: 700,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              color: h ? "#ffffff" : "#e5e5e5",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+              color: h ? "#F7F7FA" : "#D7D0FF",
               margin: 0,
               lineHeight: 1,
               transition: "color 0.3s",
@@ -107,7 +106,7 @@ const LogRow = ({ d }) => {
             fontWeight: 700,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#3f3f46",
+            color: "#3A3A48",
             flexShrink: 0,
             marginTop: "0.25rem",
           }}
@@ -134,7 +133,7 @@ const LogRow = ({ d }) => {
               fontWeight: 600,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "#52525b",
+              color: "#6b6b78",
               border: "1px solid #27272a",
               padding: "0.25rem 0.75rem",
             }}
@@ -149,7 +148,7 @@ const LogRow = ({ d }) => {
         style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: "0.9375rem",
-          color: "#a3a3a3",
+          color: "#A5A5B3",
           lineHeight: 1.78,
           marginBottom: "1.25rem",
           maxWidth: "52rem",
@@ -174,7 +173,7 @@ const LogRow = ({ d }) => {
             style={{
               width: "0.5rem",
               height: "0.5rem",
-              background: "#ffffff",
+              background: "#F7F7FA",
               display: "inline-block",
               flexShrink: 0,
             }}
@@ -183,7 +182,7 @@ const LogRow = ({ d }) => {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.8125rem",
-              color: "#ffffff",
+              color: "#F7F7FA",
               fontWeight: 500,
             }}
           >
@@ -198,7 +197,7 @@ const LogRow = ({ d }) => {
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.75rem",
               fontWeight: 600,
-              color: "#71717a",
+              color: "#A5A5B3",
               letterSpacing: "0.04em",
             }}
           >
@@ -208,7 +207,7 @@ const LogRow = ({ d }) => {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.625rem",
-              color: "#3f3f46",
+              color: "#3A3A48",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               marginTop: "0.125rem",
@@ -228,8 +227,8 @@ export default function Testimonials({ t }) {
     <section
       id="deployment-log"
       style={{
-        background: "#0b0b0b",
-        borderTop: "1px solid #18181b",
+        background: "#0D0D12",
+        borderTop: "1px solid #2A2A36",
         padding: "var(--fluid-section) 0",
       }}
     >
@@ -248,7 +247,7 @@ export default function Testimonials({ t }) {
               fontWeight: 700,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#52525b",
+              color: "#6b6b78",
               fontFamily: "'Inter', sans-serif",
               marginBottom: "1.25rem",
             }}
@@ -257,12 +256,11 @@ export default function Testimonials({ t }) {
           </div>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Sora', sans-serif",
               fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              color: "#ffffff",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+              color: "#F7F7FA",
               margin: "0 0 1.25rem 0",
               lineHeight: 1.0,
             }}
@@ -273,7 +271,7 @@ export default function Testimonials({ t }) {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "1rem",
-              color: "#71717a",
+              color: "#A5A5B3",
               lineHeight: 1.75,
               maxWidth: "42rem",
               margin: 0,
@@ -290,7 +288,7 @@ export default function Testimonials({ t }) {
             <LogRow key={d.index} d={d} />
           ))}
           {/* Closing border */}
-          <div style={{ borderTop: "1px solid #18181b" }} />
+          <div style={{ borderTop: "1px solid #2A2A36" }} />
         </div>
 
         {/* ── Ecosystem Validation Blockquote ── */}
@@ -303,11 +301,10 @@ export default function Testimonials({ t }) {
         >
           <p
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Sora', sans-serif",
               fontSize: "clamp(1.0625rem, 2vw, 1.375rem)",
-              fontStyle: "italic",
-              fontWeight: 600,
-              color: "#a3a3a3",
+              fontWeight: 500,
+              color: "#A5A5B3",
               lineHeight: 1.7,
               maxWidth: "48rem",
               margin: "0 0 1rem 0",
@@ -324,7 +321,7 @@ export default function Testimonials({ t }) {
               fontWeight: 700,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "#3f3f46",
+              color: "#3A3A48",
               fontStyle: "normal",
             }}
           >

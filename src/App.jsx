@@ -11,7 +11,6 @@ import ContactPage from "./components/ContactPage";
 import AboutPage from "./components/AboutPage";
 import ServicesPage from "./components/ServicesPage";
 import PortfolioPage from "./components/PortfolioPage";
-import Marquee from "./components/Marquee";
 import FeaturedBuilds from "./components/FeaturedBuilds";
 
 export default function App() {
@@ -70,13 +69,13 @@ export default function App() {
       "--theme-bg": t.bg, "--theme-bg-raised": t.bgRaised, "--theme-bg-hover": t.bgHover,
       "--theme-border": t.border, "--theme-border-hov": t.borderHov, "--theme-purple": t.purple,
       "--theme-teal": t.teal, "--theme-border-accent": t.borderAccent,
+      "--theme-text": t.text, "--theme-text-sub": t.textSub,
     }}>
       <Nav t={t} scrolled={scrolled} setPage={setPage} page={page} openContact={openContact} />
       
       {page === "home" && (
         <main id="main-content">
           <Hero t={t} setPage={setPage} openContact={openContact} />
-          <Marquee t={t} />
           <FeaturedBuilds t={t} setPage={setPage} />
           <Community t={t} dark={true} onContactClick={openContact} />
           <Testimonials t={t} />

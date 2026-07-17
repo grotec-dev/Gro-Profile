@@ -15,7 +15,7 @@ const HoverLink = ({ href, label, external = true }) => {
         display: "inline-flex",
         alignItems: "center",
         gap: "0.5rem",
-        color: h ? "#ffffff" : "#71717a",
+        color: h ? "#F7F7FA" : "#A5A5B3",
         textDecoration: "none",
         fontFamily: "'Inter', sans-serif",
         fontSize: "0.9375rem",
@@ -56,8 +56,8 @@ const CommunityGate = ({ href, label, icon }) => {
         alignItems: "center",
         gap: "0.875rem",
         padding: "1rem 0",
-        borderBottom: "1px solid #18181b",
-        color: h ? "#ffffff" : "#a3a3a3",
+        borderBottom: "1px solid #2A2A36",
+        color: h ? "#F7F7FA" : "#A5A5B3",
         textDecoration: "none",
         fontFamily: "'Inter', sans-serif",
         fontSize: "0.9375rem",
@@ -72,7 +72,7 @@ const CommunityGate = ({ href, label, icon }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: `1px solid ${h ? "#52525b" : "#27272a"}`,
+        border: `1px solid ${h ? "#6b6b78" : "#2A2A36"}`,
         flexShrink: 0,
         transition: "border-color 0.2s ease-out",
       }}>
@@ -101,11 +101,11 @@ const SectionLabel = ({ children }) => (
     fontWeight: 700,
     letterSpacing: "0.2em",
     textTransform: "uppercase",
-    color: "#52525b",
+    color: "#6b6b78",
     fontFamily: "'Inter', sans-serif",
     marginBottom: "1.5rem",
     paddingBottom: "0.75rem",
-    borderBottom: "1px solid #18181b",
+    borderBottom: "1px solid #2A2A36",
   }}>
     {children}
   </div>
@@ -137,15 +137,15 @@ function SubmitBtn({ sending }) {
         gap: "0.75rem",
         width: "100%",
         padding: "1.125rem 2rem",
-        background: sending ? "#27272a" : "#ffffff",
-        color: sending ? "#52525b" : "#000000",
+        background: sending ? "#2A2A36" : (h ? "#8172F0" : "#6F5BEA"),
+        color: sending ? "#6b6b78" : "#F7F7FA",
         border: "none",
-        borderRadius: 0,
+        borderRadius: "999px",
         fontFamily: "'Inter', sans-serif",
-        fontSize: "0.8125rem",
-        fontWeight: 700,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
+        fontSize: "0.9375rem",
+        fontWeight: 500,
+        letterSpacing: "0",
+        textTransform: "none",
         cursor: sending ? "not-allowed" : "pointer",
         transform: h && !sending ? "scale(1.01)" : "scale(1)",
         transition: "transform 0.2s cubic-bezier(0.16,1,0.3,1), background 0.2s",
@@ -219,33 +219,33 @@ export default function ContactPage() {
   const fieldBase = {
     width: "100%",
     background: "transparent",
-    color: "#ffffff",
+    color: "#F7F7FA",
     border: "none",
-    borderBottom: "1px solid #27272a",
+    borderBottom: "1px solid #2A2A36",
     borderRadius: 0,
     padding: "1rem 0",
     fontFamily: "'Inter', sans-serif",
     fontSize: "1rem",
     outline: "none",
     transition: "border-color 0.3s",
-    caretColor: "#ffffff",
+    caretColor: "#F7F7FA",
   };
 
   const fieldStyle = (f, val) => ({
     ...fieldBase,
     borderBottomColor:
       focused === f
-        ? "#ffffff"
+        ? "#F7F7FA"
         : touched[f] && validate(f, val)
         ? "#EF4444"
-        : "#27272a",
+        : "#2A2A36",
     opacity: sending ? 0.5 : 1,
   });
 
   return (
     <main
       id="main-content"
-      style={{ minHeight: "100vh", background: "#0b0b0b", padding: "clamp(6rem, 12vw, 9rem) 0 6rem" }}
+      style={{ minHeight: "100vh", background: "#0D0D12", padding: "clamp(6rem, 12vw, 9rem) 0 6rem" }}
     >
       <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
 
@@ -253,19 +253,18 @@ export default function ContactPage() {
         <div style={{ marginBottom: "clamp(4rem, 8vw, 6rem)", maxWidth: "52rem" }}>
           <div style={{
             fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.22em",
-            textTransform: "uppercase", color: "#52525b",
+            textTransform: "uppercase", color: "#6b6b78",
             fontFamily: "'Inter', sans-serif", marginBottom: "1.5rem",
           }}>
             Contact / Initiate
           </div>
           <h1 style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(3rem, 7vw, 6rem)",
-            fontWeight: 700,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            color: "#ffffff",
-            lineHeight: 0.95,
+            fontFamily: "'Sora', sans-serif",
+            fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            color: "#F7F7FA",
+            lineHeight: 1.05,
             margin: "0 0 2rem 0",
           }}>
             Initiate Build.
@@ -273,7 +272,7 @@ export default function ContactPage() {
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: "1rem",
-            color: "#71717a",
+            color: "#A5A5B3",
             lineHeight: 1.8,
             maxWidth: "40rem",
             margin: 0,
@@ -283,7 +282,7 @@ export default function ContactPage() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div style={{ height: "1px", background: "#18181b", marginBottom: "clamp(4rem, 8vw, 6rem)" }} />
+        <div style={{ height: "1px", background: "#2A2A36", marginBottom: "clamp(4rem, 8vw, 6rem)" }} />
 
         {/* ── SPLIT LAYOUT ── */}
         <div style={{
@@ -313,7 +312,7 @@ export default function ContactPage() {
               <p style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "0.875rem",
-                color: "#52525b",
+                color: "#6b6b78",
                 lineHeight: 1.7,
                 margin: "0 0 1.5rem 0",
               }}>
@@ -358,26 +357,25 @@ export default function ContactPage() {
               <div style={{ padding: "4rem 0" }}>
                 <div style={{
                   width: "3rem", height: "3rem",
-                  border: "1px solid #27272a",
+                  border: "1px solid #2A2A36",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   marginBottom: "2rem",
                 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7FA" strokeWidth="2">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
                 <h2 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Sora', sans-serif",
                   fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                  color: "#ffffff",
+                  fontWeight: 600,
+                  letterSpacing: "-0.01em",
+                  color: "#F7F7FA",
                   marginBottom: "1rem",
                 }}>
                   Brief Received.
                 </h2>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: "#71717a", lineHeight: 1.7, maxWidth: "28rem", margin: 0 }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: "#A5A5B3", lineHeight: 1.7, maxWidth: "28rem", margin: 0 }}>
                   Thank you. We have logged your system brief and will reach out within 24 hours to align on scope and next steps.
                 </p>
               </div>
@@ -406,7 +404,7 @@ export default function ContactPage() {
                   <label htmlFor="intake-name" style={{
                     display: "block", fontFamily: "'Inter', sans-serif",
                     fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em",
-                    textTransform: "uppercase", color: "#52525b", marginBottom: "0.5rem",
+                    textTransform: "uppercase", color: "#6b6b78", marginBottom: "0.5rem",
                   }}>
                     Name / Company <span style={{ color: "#EF4444" }}>*</span>
                   </label>
@@ -433,7 +431,7 @@ export default function ContactPage() {
                   <label htmlFor="intake-email" style={{
                     display: "block", fontFamily: "'Inter', sans-serif",
                     fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em",
-                    textTransform: "uppercase", color: "#52525b", marginBottom: "0.5rem",
+                    textTransform: "uppercase", color: "#6b6b78", marginBottom: "0.5rem",
                   }}>
                     Email Address <span style={{ color: "#EF4444" }}>*</span>
                   </label>
@@ -460,9 +458,9 @@ export default function ContactPage() {
                   <label style={{
                     display: "block", fontFamily: "'Inter', sans-serif",
                     fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em",
-                    textTransform: "uppercase", color: "#52525b", marginBottom: "1.25rem",
+                    textTransform: "uppercase", color: "#6b6b78", marginBottom: "1.25rem",
                   }}>
-                    What do you need us to handle?
+                    What do you need us to handle? <span style={{ textTransform: "none", letterSpacing: "0", fontWeight: 500, color: "#6b6b78" }}>(optional)</span>
                   </label>
                   <div style={{
                     display: "grid",
@@ -478,11 +476,11 @@ export default function ContactPage() {
                             alignItems: "center",
                             gap: "0.75rem",
                             padding: "0.875rem 0",
-                            borderBottom: "1px solid #18181b",
+                            borderBottom: "1px solid #2A2A36",
                             cursor: "pointer",
                             fontFamily: "'Inter', sans-serif",
                             fontSize: "0.875rem",
-                            color: checked ? "#ffffff" : "#71717a",
+                            color: checked ? "#F7F7FA" : "#A5A5B3",
                             transition: "color 0.2s",
                             userSelect: "none",
                           }}
@@ -497,16 +495,17 @@ export default function ContactPage() {
                           <span style={{
                             width: "1.125rem",
                             height: "1.125rem",
-                            border: `1px solid ${checked ? "#ffffff" : "#3f3f46"}`,
+                            borderRadius: "0.25rem",
+                            border: `1px solid ${checked ? "#6F5BEA" : "#3A3A48"}`,
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                             flexShrink: 0,
-                            transition: "border-color 0.2s",
-                            background: checked ? "#ffffff" : "transparent",
+                            transition: "border-color 0.2s, background 0.2s",
+                            background: checked ? "#6F5BEA" : "transparent",
                           }}>
                             {checked && (
-                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="3">
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F7F7FA" strokeWidth="3">
                                 <polyline points="20 6 9 17 4 12" />
                               </svg>
                             )}
@@ -523,9 +522,9 @@ export default function ContactPage() {
                   <label htmlFor="intake-description" style={{
                     display: "block", fontFamily: "'Inter', sans-serif",
                     fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em",
-                    textTransform: "uppercase", color: "#52525b", marginBottom: "0.5rem",
+                    textTransform: "uppercase", color: "#6b6b78", marginBottom: "0.5rem",
                   }}>
-                    Project Scope, Timelines &amp; Goals
+                    Project Scope, Timelines &amp; Goals <span style={{ textTransform: "none", letterSpacing: "0", fontWeight: 500, color: "#6b6b78" }}>(optional)</span>
                   </label>
                   <textarea
                     id="intake-description"
@@ -538,7 +537,7 @@ export default function ContactPage() {
                     onBlur={() => setFocused(null)}
                     style={{
                       ...fieldBase,
-                      borderBottomColor: focused === "description" ? "#ffffff" : "#27272a",
+                      borderBottomColor: focused === "description" ? "#F7F7FA" : "#2A2A36",
                       resize: "vertical",
                       opacity: sending ? 0.5 : 1,
                       minHeight: "8rem",

@@ -5,42 +5,37 @@ const teamMembers = [
   {
     id: "michael-orji",
     name: "Michael Orji Chukwuemeka",
-    role: "CEO / Co-founder",
+    role: "Frontend & Mobile Lead",
     bio: "Leads enterprise business strategy and helps African companies grow using high-performance digital tools.",
-    shapeClass: "rounded-tr-[80px] rounded-bl-[40px] border border-zinc-80px",
-    frameStyle: "Wide structural card layout."
+    silhouette: "classic",
   },
   {
     id: "chidalu-udeobi",
     name: "Chidalu Udeobi",
-    role: "Director / Co-founder",
+    role: "Business Analyst & Growth Lead",
     bio: "Manages day-to-day operations and ensures our software products solve real, physical business challenges.",
-    shapeClass: "rounded-tl-[120px] rounded-br-[60px]",
-    frameStyle: "Standard vertical card layout."
+    silhouette: "twists",
   },
   {
     id: "ikedinachi-ogbonne",
     name: "Ikedinachi Ogbonne",
-    role: "Project Manager / Founder",
+    role: "Project Manager",
     bio: "Coordinates agile engineering workflows, sets delivery timelines, and guarantees technical project execution.",
-    shapeClass: "border border-zinc-800 rounded-none",
-    frameStyle: "Standard vertical card layout."
+    silhouette: "structured",
   },
   {
     id: "kamsiyochukwu-ogbodo",
     name: "Kamsiyochukwu Ogbodo",
-    role: "Engineering / Co-founder",
+    role: "Backend & DevOps Lead",
     bio: "Architects heavy backend software systems, optimizes database designs, and deploys scalable cloud server setups.",
-    shapeClass: "rounded-full aspect-square border border-zinc-800",
-    frameStyle: "Contrasting layout frame."
+    silhouette: "curly",
   },
   {
     id: "francis-chimdinma",
     name: "Agbara Francis Chimdinma",
-    role: "Cyber Security & Infrastructure Lead / Co-founder",
+    role: "Cyber Security & Infrastructure Lead",
     bio: "Secures networks, conducts penetration tests, and manages cloud infrastructure to protect software deployments from vulnerabilities.",
-    shapeClass: "rounded-br-[100px]",
-    frameStyle: "Wide structural base card layout."
+    silhouette: "buzz",
   }
 ];
 
@@ -74,7 +69,59 @@ const communityChannels = [
   }
 ];
 
-const BentoMemberCard = ({ m, index }) => {
+const Silhouette = ({ variant, color }) => {
+  switch (variant) {
+    case "twists":
+      // short twists/locs, close to the scalp
+      return (
+        <svg width="72" height="72" viewBox="0 0 84 84">
+          <circle cx="42" cy="32" r="18" fill={color} />
+          <line x1="33" y1="16" x2="31" y2="25" stroke={color} strokeWidth="3" strokeLinecap="round" />
+          <line x1="42" y1="14" x2="41" y2="24" stroke={color} strokeWidth="3" strokeLinecap="round" />
+          <line x1="51" y1="16" x2="53" y2="25" stroke={color} strokeWidth="3" strokeLinecap="round" />
+          <path d="M8 72 Q42 36 76 72 L76 80 Q42 88 8 80 Z" fill={color} />
+        </svg>
+      );
+    case "structured":
+      // flat-top structured cut
+      return (
+        <svg width="72" height="72" viewBox="0 0 84 84">
+          <rect x="24" y="14" width="36" height="32" rx="8" fill={color} />
+          <path d="M8 72 Q42 36 76 72 L76 80 Q42 88 8 80 Z" fill={color} />
+        </svg>
+      );
+    case "curly":
+      // short, tight curls close to the scalp
+      return (
+        <svg width="72" height="72" viewBox="0 0 84 84">
+          <circle cx="42" cy="33" r="18" fill={color} />
+          <circle cx="29" cy="21" r="5.5" fill={color} />
+          <circle cx="38" cy="16" r="5.5" fill={color} />
+          <circle cx="47" cy="16" r="5.5" fill={color} />
+          <circle cx="56" cy="21" r="5.5" fill={color} />
+          <path d="M8 72 Q42 36 76 72 L76 80 Q42 88 8 80 Z" fill={color} />
+        </svg>
+      );
+    case "buzz":
+      // buzz cut / defined hairline, minimal
+      return (
+        <svg width="72" height="72" viewBox="0 0 84 84">
+          <circle cx="42" cy="32" r="18" fill={color} />
+          <path d="M25 24 A18 18 0 0 1 59 24" fill="none" stroke={color} strokeWidth="3" opacity="0.55" />
+          <path d="M8 72 Q42 36 76 72 L76 80 Q42 88 8 80 Z" fill={color} />
+        </svg>
+      );
+    default:
+      return (
+        <svg width="72" height="72" viewBox="0 0 84 84">
+          <circle cx="42" cy="32" r="18" fill={color} />
+          <path d="M8 72 Q42 36 76 72 L76 80 Q42 88 8 80 Z" fill={color} />
+        </svg>
+      );
+  }
+};
+
+const BentoMemberCard = ({ m, index, t }) => {
   const [h, setH] = useState(false);
   return (
     <div
@@ -82,69 +129,52 @@ const BentoMemberCard = ({ m, index }) => {
       onMouseLeave={() => setH(false)}
       className={`bento-card bento-card-${index}`}
       style={{
-        background: "#0a0a0c",
-        border: `1px solid ${h ? "#ffffff" : "#27272a"}`,
+        background: t.bg,
+        border: `1px solid ${h ? t.borderHov : t.border}`,
         overflow: "hidden",
         position: "relative",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         display: "flex",
         flexDirection: "column",
         transform: h ? "scale(1.02)" : "scale(1)",
-        boxShadow: h ? "0 12px 36px rgba(255, 255, 255, 0.04)" : "none",
+        boxShadow: h ? "0 12px 36px rgba(111, 91, 234, 0.08)" : "none",
         cursor: "default"
       }}
     >
-      {/* Top half: Styled mockup vector placeholder box matching shapeClass */}
+      {/* Top half: silhouette avatar */}
       <div style={{ 
         height: "13rem", 
         display: "flex", 
         alignItems: "center", 
         justifyContent: "center", 
-        background: "#000000",
-        borderBottom: "1px solid #1a1a1e",
+        background: t.bg,
+        borderBottom: `1px solid ${t.border}`,
         padding: "1.5rem"
       }}>
         <div 
-          className={m.shapeClass}
           style={{
             width: "8rem",
             height: "8rem",
-            background: "#121214",
+            borderRadius: "50%",
+            background: t.bgRaised,
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            padding: "0.875rem",
-            position: "relative",
-            overflow: "hidden",
-            transition: "border-color 0.3s ease",
-            borderColor: h ? "#ffffff" : "#27272a",
+            alignItems: "center",
+            justifyContent: "center",
+            border: `1px solid ${h ? t.borderHov : t.border}`,
+            transition: "border-color 0.3s ease, transform 0.3s ease",
+            transform: h ? "scale(1.03)" : "scale(1)",
           }}
         >
-          {/* Subtle grid pattern */}
-          <div style={{ position: "absolute", inset: 0, opacity: 0.08, backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "12px 12px" }} />
-          
-          {/* Mock UI window headers */}
-          <div style={{ display: "flex", gap: "5px", zIndex: 2 }}>
-            <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#27272a" }} />
-            <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#27272a" }} />
-            <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#27272a" }} />
-          </div>
-          
-          {/* Mock layout code lines */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "5px", zIndex: 2 }}>
-            <div style={{ height: "6px", width: "70%", background: "#27272a", borderRadius: "1px" }} />
-            <div style={{ height: "4px", width: "45%", background: "#1a1a1e", borderRadius: "1px" }} />
-            <div style={{ height: "4px", width: "55%", background: "#1a1a1e", borderRadius: "1px" }} />
-          </div>
+          <Silhouette variant={m.silhouette} color={h ? t.purple : t.accent} />
         </div>
       </div>
 
       {/* Card text content */}
       <div style={{ padding: "2rem 1.5rem", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", transform: h ? "translateY(-2px)" : "translateY(0)", transition: "transform 0.3s ease" }}>
         <div>
-          <div style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6b5ce7", fontFamily: "'Inter',sans-serif", marginBottom: "0.5em" }}>{m.role}</div>
-          <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: "1.125rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5em", letterSpacing: "-0.02em", margin: "0 0 0.5em 0" }}>{m.name}</h3>
-          <p style={{ fontSize: "0.875rem", color: "#a3a3a3", lineHeight: 1.74, fontFamily: "'Inter',sans-serif", margin: 0 }}>{m.bio}</p>
+          <div style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: t.purple, fontFamily: "'Inter',sans-serif", marginBottom: "0.5em" }}>{m.role}</div>
+          <h3 style={{ fontFamily: "'Sora',sans-serif", fontSize: "1.125rem", fontWeight: 700, color: t.text, marginBottom: "0.5em", letterSpacing: "-0.02em", margin: "0 0 0.5em 0" }}>{m.name}</h3>
+          <p style={{ fontSize: "0.875rem", color: t.textSub, lineHeight: 1.74, fontFamily: "'Inter',sans-serif", margin: 0 }}>{m.bio}</p>
         </div>
       </div>
     </div>
@@ -155,17 +185,17 @@ export default function AboutPage({ t }) {
   const [hoveredChannel, setHoveredChannel] = useState(null);
 
   return (
-    <main id="main-content" style={{ background: "#000000", color: "#ffffff", minHeight: "100vh" }}>
+    <main id="main-content" style={{ background: t.bg, color: t.text, minHeight: "100vh" }}>
       
       {/* SECTION 1: The Inception Header */}
       <section id="about-intro" style={{ padding: "clamp(6rem, 10vw, 8rem) 0 4rem 0" }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
           <div style={{ maxWidth: "48rem" }}>
             <Label t={t}>Our Company</Label>
-            <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)", fontWeight: 900, lineHeight: 0.96, letterSpacing: "-0.04em", color: "#ffffff", textTransform: "uppercase", margin: "1.5rem 0" }}>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(2.25rem, 4.5vw, 3.5rem)", fontWeight: 600, lineHeight: 1.05, letterSpacing: "-0.02em", color: t.text, margin: "1.5rem 0" }}>
               Built for system performance.
             </h1>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: "#a3a3a3", lineHeight: 1.8, margin: 0 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: t.textSub, lineHeight: 1.8, margin: 0 }}>
               GroTec started in 2023 with a clear mission: to build robust, custom web platforms, native mobile applications, and highly secure digital infrastructure for African enterprises. We remove the noise, focus on deep engineering, and scale businesses with clean code.
             </p>
           </div>
@@ -173,32 +203,32 @@ export default function AboutPage({ t }) {
       </section>
 
       {/* SECTION 2: The Corporate Hierarchy Bento Grid */}
-      <section id="about-team" style={{ padding: "4rem 0", borderTop: "1px solid #1a1a1a" }}>
+      <section id="about-team" style={{ padding: "4rem 0", borderTop: `1px solid ${t.border}` }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
           <div style={{ marginBottom: "3.5rem" }}>
-            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6b5ce7", fontFamily: "'Inter',sans-serif" }}>Leadership</span>
-            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "2rem", fontWeight: 700, letterSpacing: "-0.02em", color: "#ffffff", marginTop: "0.5rem", marginBottom: "0", textTransform: "uppercase" }}>
-              The Minds Behind GroTec
+            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: t.purple, fontFamily: "'Inter',sans-serif" }}>Leadership</span>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "2rem", fontWeight: 600, letterSpacing: "-0.01em", color: t.text, marginTop: "0.5rem", marginBottom: "0" }}>
+              The minds behind GroTec
             </h2>
           </div>
 
           <div className="bento-grid">
             {teamMembers.map((m, i) => (
-              <BentoMemberCard key={m.id} m={m} index={i} />
+              <BentoMemberCard key={m.id} m={m} index={i} t={t} />
             ))}
           </div>
         </div>
       </section>
 
       {/* SECTION 3: The Ecosystem & Talent Engine Pipeline */}
-      <section id="about-advantage" style={{ padding: "6rem 0", borderTop: "1px solid #1a1a1a" }}>
+      <section id="about-advantage" style={{ padding: "6rem 0", borderTop: `1px solid ${t.border}` }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 clamp(1.25rem, 4vw, 2.5rem)" }}>
           <div style={{ maxWidth: "48rem" }}>
-            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6b5ce7", fontFamily: "'Inter',sans-serif" }}>Advantage</span>
-            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, letterSpacing: "-0.03em", color: "#ffffff", marginTop: "0.5rem", marginBottom: "1.5rem", textTransform: "uppercase" }}>
+            <span style={{ fontSize: "0.625rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: t.purple, fontFamily: "'Inter',sans-serif" }}>Advantage</span>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 600, letterSpacing: "-0.02em", color: t.text, marginTop: "0.5rem", marginBottom: "1.5rem" }}>
               Our unfair advantage is our people.
             </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: "#a3a3a3", lineHeight: 1.8, margin: 0 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.125rem", color: t.textSub, lineHeight: 1.8, margin: 0 }}>
               We don't operate in a vacuum. GroTec sits at the center of a thriving tech ecosystem. By running active developer networks, deep-dive DevTalks, and local tech seminars, we maintain direct access to a vetted talent pipeline. When your project demands massive scale, we activate our community network to deploy additional engineered hands instantly.
             </p>
           </div>
@@ -226,12 +256,12 @@ export default function AboutPage({ t }) {
                     flexDirection: "column",
                     justifyContent: "space-between",
                     padding: "2.5rem 2.25rem",
-                    background: "#000000",
-                    border: `1px solid ${isHovered ? "#ffffff" : "#222222"}`,
+                    background: t.bg,
+                    border: `1px solid ${isHovered ? t.borderHov : t.border}`,
                     textDecoration: "none",
                     transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                     transform: isHovered ? "scale(1.02) translateY(-2px)" : "scale(1) translateY(0)",
-                    boxShadow: isHovered ? "0 10px 30px rgba(0, 0, 0, 0.7)" : "none",
+                    boxShadow: isHovered ? "0 10px 30px rgba(0, 0, 0, 0.4)" : "none",
                     cursor: "pointer",
                     overflow: "hidden"
                   }}
@@ -242,7 +272,7 @@ export default function AboutPage({ t }) {
                       fontWeight: 700,
                       letterSpacing: "0.18em",
                       textTransform: "uppercase",
-                      color: "#6b5ce7",
+                      color: t.purple,
                       fontFamily: "'Inter',sans-serif",
                       marginBottom: "1rem"
                     }}>
@@ -250,7 +280,7 @@ export default function AboutPage({ t }) {
                     </div>
                     <p style={{
                       fontSize: "0.9375rem",
-                      color: "#a3a3a3",
+                      color: t.textSub,
                       lineHeight: 1.68,
                       fontFamily: "'Inter',sans-serif",
                       margin: "0 0 2.5rem 0"
@@ -267,7 +297,7 @@ export default function AboutPage({ t }) {
                     fontWeight: 600,
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
-                    color: isHovered ? "#ffffff" : "#a3a3a3",
+                    color: isHovered ? t.text : t.textDim,
                     fontFamily: "'Inter',sans-serif",
                     transition: "color 0.2s ease"
                   }}>

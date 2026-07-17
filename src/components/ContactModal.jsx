@@ -123,12 +123,12 @@ export default function ContactModal({ t, open, onClose, initialState }) {
   const inputStyle = (field, val) => ({
     fontFamily: "'Inter', sans-serif", fontSize: "1rem", width: "100%",
     background: t.bg, color: t.text, border: `1px solid ${getInputBorder(field, val)}`,
-    borderRadius: 0, padding: "1rem 1.25rem", transition: "border-color 0.22s ease",
+    borderRadius: "var(--radius-sm)", padding: "1rem 1.25rem", transition: "border-color 0.22s ease",
   });
 
   const selectStyle = (fieldName) => ({
     fontFamily: "'Inter', sans-serif", fontSize: "1rem", width: "100%", backgroundColor: t.bg, color: t.text,
-    border: `1px solid ${focusedField === fieldName ? t.purple : t.border}`, borderRadius: 0,
+    border: `1px solid ${focusedField === fieldName ? t.purple : t.border}`, borderRadius: "var(--radius-sm)",
     padding: "1rem 1.25rem", transition: "border-color 0.22s ease",
     WebkitAppearance: "none", backgroundPosition: "right 16px center",
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='${t.id === "dark" ? "white" : "black"}' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
@@ -151,7 +151,7 @@ export default function ContactModal({ t, open, onClose, initialState }) {
           </svg>
         </button>
 
-        <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, margin: "0 0 2rem 0", letterSpacing: "-0.02em" }}>
+        <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, margin: "0 0 2rem 0", letterSpacing: "-0.02em" }}>
           {submitted ? "Project Initiated" : "Start a Project"}
         </h2>
 
@@ -160,7 +160,7 @@ export default function ContactModal({ t, open, onClose, initialState }) {
             <div style={{ width: "4rem", height: "4rem", borderRadius: "50%", background: t.tealDim, display: "flex", alignItems: "center", justifyContent: "center", color: t.teal, marginBottom: "1.5rem" }}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, marginBottom: "0.75rem", letterSpacing: "-0.01em" }}>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: t.text, marginBottom: "0.75rem", letterSpacing: "-0.01em" }}>
               Submission Successful
             </h2>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "1rem", color: t.textSub, lineHeight: 1.6, maxWidth: "20rem", margin: 0 }}>
@@ -256,9 +256,9 @@ export default function ContactModal({ t, open, onClose, initialState }) {
             <div style={{ marginTop: "1rem" }}>
               <button type="submit" disabled={sending} style={{
                   width: "100%", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5625rem",
-                  fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.07em",
-                  textTransform: "uppercase", height: "3.25rem", background: sending ? t.borderHov : t.purple,
-                  color: sending ? t.textDim : "#fff", border: "none", borderRadius: 0, cursor: sending ? "not-allowed" : "pointer",
+                  fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0",
+                  textTransform: "none", height: "3.25rem", background: sending ? t.borderHov : t.purple,
+                  color: sending ? t.textDim : "#fff", border: "none", borderRadius: "999px", cursor: sending ? "not-allowed" : "pointer",
                   transition: "all 0.22s ease", opacity: sending ? 0.8 : 1,
                 }}
                 onMouseEnter={(e) => { if (sending) return; e.currentTarget.style.background = t.purpleL; }}

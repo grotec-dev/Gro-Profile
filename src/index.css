@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -8,9 +8,9 @@
 
 :root {
   /* Fluid Typography — scales smoothly without breakpoints */
-  --fluid-h1:     clamp(2.25rem, 9vw, 9rem);
-  --fluid-h2:     clamp(1.75rem, 4.5vw, 3rem);
-  --fluid-h3:     clamp(1.1rem, 2vw, 1.5rem);
+  --fluid-h1:     clamp(2rem, 5vw, 4.25rem);
+  --fluid-h2:     clamp(1.75rem, 3.5vw, 2.75rem);
+  --fluid-h3:     clamp(1.1rem, 2vw, 1.4rem);
   --fluid-body:   clamp(0.875rem, 1.1vw, 1.05rem);
   --fluid-small:  clamp(0.75rem, 0.9vw, 0.875rem);
   --fluid-label:  clamp(0.6rem, 0.75vw, 0.7rem);
@@ -21,6 +21,12 @@
   --fluid-gap:     clamp(1rem, 2.5vw, 2.5rem);
   --fluid-gap-sm:  clamp(0.5rem, 1.2vw, 1rem);
   --fluid-px:      clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Radius scale */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
 
   /* Easing Curves */
   --ease-antigravity: cubic-bezier(0.16, 1, 0.3, 1);
@@ -36,25 +42,34 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
-  color: #e5e5e5;
+  background-color: #0D0D12;
+  color: #A5A5B3;
   font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: #F7F7FA;
 }
 
 body p, body a, body button, body li, body span, body input, body textarea {
   font-family: 'Inter', sans-serif;
 }
 
+textarea {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
-  background: rgba(107, 92, 231, 0.3);
+  background: rgba(111, 91, 234, 0.28);
 }
 
 /* ─── ANIMATION SPINNER ─────────────────────────────────────────────── */
@@ -327,11 +342,18 @@ body p, body a, body button, body li, body span, body input, body textarea {
   max-width: 44rem;
   max-height: 90vh;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   border-width: 1px;
   border-style: solid;
+  border-radius: var(--radius-lg);
   position: relative;
   padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
   transition: transform 0.35s var(--ease-antigravity);
+}
+
+.gt-modal-panel::-webkit-scrollbar {
+  display: none;
 }
 
 .gt-modal-close {
@@ -418,6 +440,7 @@ textarea:focus-visible,
 .bento-card {
   background: var(--theme-bg-raised);
   border: 1px solid var(--theme-border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -427,7 +450,7 @@ textarea:focus-visible,
 
 .bento-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.24);
   border-color: var(--theme-border-hov);
 }
 
@@ -534,42 +557,6 @@ textarea:focus-visible,
   .md\:col-span-2 {
     grid-column: span 2;
   }
-}
-
-/* ─── MARQUEE TECH TICKER ──────────────────────────────────────────── */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  display: flex;
-  background: var(--theme-bg-raised);
-  border-top: 1px solid var(--theme-border);
-  border-bottom: 1px solid var(--theme-border);
-  padding: 1.25rem 0;
-  position: relative;
-}
-
-.marquee-content {
-  display: flex;
-  animation: marquee 25s linear infinite;
-  min-width: 200%;
-}
-
-.marquee-item {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 1.125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--theme-text-sub);
-  padding: 0 2rem;
-  display: inline-flex;
-  align-items: center;
 }
 
 /* ─── PROJECT BENTO GRID ───────────────────────────────────────────── */

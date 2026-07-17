@@ -10,7 +10,7 @@ const SocialLink = ({ s, t }) => {
     <a href={s.href} target="_blank" rel="noopener noreferrer"
       aria-label={s.label}
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
-      style={{width: "2.125rem", height: "2.125rem", border: `1px solid ${h ? t.borderHov : t.border}`, display: "flex", alignItems: "center", justifyContent: "center", color: h ? t.purple : t.textDim, textDecoration: "none", transition: "all 0.2s ease", background: h ? t.bgHover : "transparent", borderRadius: 0}}
+      style={{width: "2.125rem", height: "2.125rem", border: `1px solid ${h ? t.borderHov : t.border}`, display: "flex", alignItems: "center", justifyContent: "center", color: h ? t.purple : t.textDim, textDecoration: "none", transition: "all 0.2s ease", background: h ? t.bgHover : "transparent", borderRadius: "var(--radius-sm)"}}
     >
       {s.fill
         ? <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d={s.path} /></svg>
@@ -74,10 +74,10 @@ const FooterLink = ({ l, href, onClick }) => {
       onMouseLeave={() => setH(false)}
       style={{
         fontSize: "0.875rem",
-        color: h ? "#ffffff" : "#71717a",
+        color: h ? "#F7F7FA" : "#A5A5B3",
         textDecoration: "none",
         transition: "color 0.2s ease-out",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontFamily: "'Inter', sans-serif",
         cursor: "pointer",
         outline: "none"
       }}
@@ -108,9 +108,9 @@ const ActionLink = ({ onClick }) => {
         display: "inline-block",
         fontSize: "1rem",
         fontWeight: 700,
-        color: "#ffffff",
+        color: "#F7F7FA",
         textDecoration: "none",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontFamily: "'Inter', sans-serif",
         position: "relative",
         userSelect: "none"
       }}
@@ -122,7 +122,7 @@ const ActionLink = ({ onClick }) => {
         left: 0,
         width: "100%",
         height: "1px",
-        background: "#ffffff",
+        background: "#F7F7FA",
         transform: h ? "scaleX(1) translateX(3px)" : "scaleX(0) translateX(0)",
         transformOrigin: "left",
         transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)"
@@ -136,17 +136,17 @@ export function Footer({ setPage, openContact }) {
   const colHeaderStyle = {
     fontSize: "0.6875rem",
     fontWeight: 700,
-    color: "#ffffff",
-    fontFamily: "'Syne', sans-serif",
+    color: "#F7F7FA",
+    fontFamily: "'Sora', sans-serif",
     textTransform: "uppercase",
     letterSpacing: "0.15em"
   };
 
   return (
     <footer
-      className="bg-[#0b0b0b] border-t border-zinc-900 w-full h-auto min-h-0"
+      className="bg-[#0D0D12] border-t border-zinc-900 w-full h-auto min-h-0"
       role="contentinfo"
-      style={{ background: "#0b0b0b", borderTop: "1px solid #18181b" }}
+      style={{ background: "#0D0D12", borderTop: "1px solid #2A2A36" }}
     >
       <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "clamp(4rem, 8vw, 6rem) clamp(1.25rem, 4vw, 2.5rem) clamp(4rem, 6vw, 4rem)" }}>
         
@@ -174,7 +174,7 @@ export function Footer({ setPage, openContact }) {
                 }}
               />
             </a>
-            <p style={{ fontSize: "0.875rem", color: "#71717a", lineHeight: 1.7, fontFamily: "'Plus Jakarta Sans', sans-serif", margin: "0 0 0.5rem 0", maxWidth: "16rem" }}>
+            <p style={{ fontSize: "0.875rem", color: "#A5A5B3", lineHeight: 1.7, fontFamily: "'Inter', sans-serif", margin: "0 0 0.5rem 0", maxWidth: "16rem" }}>
               Architecting elite software systems, brand design, and secure infrastructure. Established 2023.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -222,17 +222,17 @@ export function Footer({ setPage, openContact }) {
         {/* BOTTOM ROW: LEGALITY & SEMANTICS */}
         <div
           className="border-t border-zinc-900 mt-12 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
-          style={{ borderTop: "1px solid #18181b", marginTop: "3rem", paddingTop: "2rem" }}
+          style={{ borderTop: "1px solid #2A2A36", marginTop: "3rem", paddingTop: "2rem" }}
         >
           <span
             className="text-sm text-zinc-500"
-            style={{ fontSize: "0.75rem", color: "#71717a", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontSize: "0.75rem", color: "#A5A5B3", fontFamily: "'Inter', sans-serif" }}
           >
             © 2026 GroTec Studio. All rights reserved.
           </span>
           <span
             className="text-sm text-zinc-500"
-            style={{ fontSize: "0.75rem", color: "#71717a", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontSize: "0.75rem", color: "#A5A5B3", fontFamily: "'Inter', sans-serif" }}
           >
             Engineered in Nigeria.
           </span>

@@ -38,7 +38,7 @@ export default function Nav({t, scrolled, setPage, page, openContact}) {
         <div className="gt-nav-d" style={{display:"flex",alignItems:"center",gap:"2rem"}}>
           {links.map(([href,label])=>(
             <a key={href} href={href} onClick={(e) => handleNavClick(e, href)}
-              style={{fontSize:"0.75rem",fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",color: page===href || hLink===href ? t.text : t.textSub,textDecoration:"none",transition:"color 0.18s ease",fontFamily:"'Inter',sans-serif"}}
+              style={{fontSize:"0.875rem",fontWeight:500,letterSpacing:"0",textTransform:"none",color: page===href || hLink===href ? t.text : t.textSub,textDecoration:"none",transition:"color 0.18s ease",fontFamily:"'Inter',sans-serif"}}
               onMouseEnter={()=>setHLink(href)} onMouseLeave={()=>setHLink(null)}
             >{label}</a>
           ))}
@@ -51,10 +51,10 @@ export default function Nav({t, scrolled, setPage, page, openContact}) {
               className="cursor-pointer select-none"
               style={{
                 display:"inline-flex", alignItems:"center", gap:"0.5625rem",
-                fontFamily:"'Inter',sans-serif", fontSize:"0.8125rem", fontWeight:600,
-                letterSpacing:"0.07em", textTransform:"uppercase", borderRadius:0,
-                padding:"0.8125rem 1.625rem", transition:"all 0.22s ease",
-                border:"none", background:"#6b5ce7", color:"#fff"
+                fontFamily:"'Inter',sans-serif", fontSize:"0.875rem", fontWeight:500,
+                letterSpacing:"0", textTransform:"none", borderRadius:"999px",
+                padding:"0.75rem 1.5rem", transition:"all 0.22s ease",
+                border:"none", background:"#6F5BEA", color:"#fff"
               }}
             >
               Start a Project
@@ -76,7 +76,7 @@ export default function Nav({t, scrolled, setPage, page, openContact}) {
         <div style={{background:t.bg,borderTop:`1px solid ${t.border}`,padding:"1.25rem clamp(1.25rem, 4vw, 2.5rem) 1.75rem"}}>
           {links.map(([href,label])=>(
             <a key={href} href={href} onClick={(e) => handleNavClick(e, href)}
-              style={{display:"block",padding:"0.875rem 0",fontSize:"0.8125rem",fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",color: page===href ? t.text : t.textSub,textDecoration:"none",borderBottom:`1px solid ${t.border}`,fontFamily:"'Inter',sans-serif"}}>
+              style={{display:"block",padding:"0.875rem 0",fontSize:"0.9375rem",fontWeight:500,letterSpacing:"0",textTransform:"none",color: page===href ? t.text : t.textSub,textDecoration:"none",borderBottom:`1px solid ${t.border}`,fontFamily:"'Inter',sans-serif"}}>
               {label}
             </a>
           ))}
@@ -86,10 +86,10 @@ export default function Nav({t, scrolled, setPage, page, openContact}) {
               className="cursor-pointer select-none"
               style={{
                 display:"inline-flex", alignItems:"center", gap:"0.5625rem",
-                fontFamily:"'Inter',sans-serif", fontSize:"0.8125rem", fontWeight:600,
-                letterSpacing:"0.07em", textTransform:"uppercase", borderRadius:0,
-                padding:"0.8125rem 1.625rem", transition:"all 0.22s ease",
-                border:"none", background:"#6b5ce7", color:"#fff", width:"100%", justifyContent:"center"
+                fontFamily:"'Inter',sans-serif", fontSize:"0.875rem", fontWeight:500,
+                letterSpacing:"0", textTransform:"none", borderRadius:"999px",
+                padding:"0.75rem 1.5rem", transition:"all 0.22s ease",
+                border:"none", background:"#6F5BEA", color:"#fff", width:"100%", justifyContent:"center"
               }}
             >
               Start a Project
