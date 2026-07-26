@@ -84,7 +84,7 @@ export default function PrivacyPolicy({t, onBack}) {
             <li style={{marginBottom: "0.5rem"}}>Ask us to delete your data.</li>
             <li style={{marginBottom: "0.5rem"}}>Object to how we use your data.</li>
           </ul>
-          <p style={pStyle}>To use these rights, email us at <a href="mailto:hello@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>hello@grotec.dev</a>.</p>
+          <p style={pStyle}>To use these rights, email us at <a href="mailto:gro.tec@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>gro.tec@grotec.dev</a>.</p>
         </div>
 
         <div style={sectionStyle}>
@@ -99,7 +99,7 @@ export default function PrivacyPolicy({t, onBack}) {
 
         <div style={{marginBottom: "2rem"}}>
           <h2 style={h2Style}>8. Contact Us</h2>
-          <p style={pStyle}>If you have questions about your privacy, email us at <a href="mailto:hello@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>hello@grotec.dev</a>.</p>
+          <p style={pStyle}>If you have questions about your privacy, email us at <a href="mailto:gro.tec@grotec.dev" style={{color:t.purple, textDecoration:"none"}}>gro.tec@grotec.dev</a>.</p>
         </div>
       </div>
     </main>

@@ -299,7 +299,7 @@ export default function ContactPage() {
             <div>
               <SectionLabel>Direct Channels</SectionLabel>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
-                <HoverLink href="mailto:hello@grotec.dev" label="hello@grotec.dev" external={false} />
+                <HoverLink href="mailto:gro.tec@grotec.dev" label="gro.tec@grotec.dev" external={false} />
                 <HoverLink href="https://x.com/Grotecdev" label="X (Twitter)" />
                 <HoverLink href="https://linkedin.com/company/grotec" label="LinkedIn" />
                 <HoverLink href="https://instagram.com/grotec.dev" label="Instagram" />
