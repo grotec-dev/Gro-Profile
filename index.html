@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Automatic domain redirect for legacy .vercel.app URLs -->
+    <script>
+      if (window.location.hostname.includes('vercel.app')) {
+        window.location.replace('https://grotec.dev' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
+
     <link rel="icon" href="/favicon.ico" />
 
     <!-- Primary SEO Meta Tags -->
@@ -11,23 +19,23 @@
     <meta name="keywords" content="GroTec, technology agency, software agency Nigeria, custom web development, mobile apps, digital tools, African tech agency, software solutions" />
     <meta name="author" content="GroTec" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://gro-profile.vercel.app/" />
+    <link rel="canonical" href="https://grotec.dev/" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:site_name" content="GroTec" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gro-profile.vercel.app/" />
+    <meta property="og:url" content="https://grotec.dev/" />
     <meta property="og:title" content="GroTec | Technology Agency &amp; Software Solutions" />
     <meta property="og:description" content="GroTec is a technology agency in Nigeria building custom websites, mobile apps, and digital tools for businesses across Africa." />
-    <meta property="og:image" content="https://gro-profile.vercel.app/og-banner.png" />
+    <meta property="og:image" content="https://grotec.dev/og-banner.png" />
     <meta property="og:image:alt" content="GroTec - Technology Agency &amp; Software Solutions" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://gro-profile.vercel.app/" />
+    <meta property="twitter:url" content="https://grotec.dev/" />
     <meta property="twitter:title" content="GroTec | Technology Agency &amp; Software Solutions" />
     <meta property="twitter:description" content="GroTec is a technology agency in Nigeria building custom websites, mobile apps, and digital tools for businesses across Africa." />
-    <meta property="twitter:image" content="https://gro-profile.vercel.app/og-banner.png" />
+    <meta property="twitter:image" content="https://grotec.dev/og-banner.png" />
 
     <!-- Google Search Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
@@ -35,8 +43,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "GroTec",
-        "url": "https://gro-profile.vercel.app/",
-        "logo": "https://gro-profile.vercel.app/og-banner.png",
+        "url": "https://grotec.dev/",
+        "logo": "https://grotec.dev/og-banner.png",
         "description": "GroTec is a technology agency in Nigeria building custom websites, mobile apps, and digital tools for businesses across Africa.",
         "email": "gro.tec@grotec.dev",
         "address": {
